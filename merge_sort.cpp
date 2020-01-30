@@ -55,52 +55,6 @@ void merge_sort(int data[], int num) {
     }
 }
 
-//
-void Merge(elementtype A[], elementtype TA[], int lpos, int rpos, int rightend) {
-    int leftend = rpos - 1;
-    int numelement = rightend - lpos + 1;
-    int tpos = lpos;
-
-    while(lpos<=leftend && rpos<=rightend) {
-        if(A[lpos] <= A[rpos]) {
-            TA[tpos++] = A[lpos++];
-        } else {
-            TA[tpos++] = A[rpos++];
-        }
-    }
-
-    while(lpos<=leftend)
-        TA[tpos++] = A[lpos++];
-    while(rpos<=rightend)
-        TA[tpos++] = A[rpos++];
-
-    int i = 0;
-    for(i=0;i<numelement;i++,rightend--) {
-        A[rightend] = TA[rightend];
-    }
-}
-
-void MSort(elementtype A[], elementtype* TA, int left, int right) {
-    if (left < right) {
-        int center = (left + right) / 2;
-        MSort(A, TA, left, center);
-        MSort(A, TA, center + 1, right);
-        Merge(A, TA, left, center + 1, right);
-    }
-}
-
-void mergesort(elementtype A[], int n) {
-    elementtype *TA;
-    TA = (elementtype*)malloc(sizeof(elementtype)); //just malloc once
-    if (NULL != TA) {
-        MSort(A, TA, 0, n-1);
-        free(TA);
-    } else {
-        printf("error: TA can't be empty!\n");
-    }
-}
-//
-
 int main() {
     for (int i=0; i<20; i++) {
         printf("data_source[%d]=%d\n", i, data_source[i]);
@@ -115,10 +69,5 @@ int main() {
         printf("data_sort[%d]=%d\n", i, data_sort[i]);
     }
 
-    // mergesort(data_source, 20);
-    // printf("---------------------------\n");
-    // for (int i=0; i<20; i++) {
-    //     printf("data_source[%d]=%d\n", i, data_source[i]);
-    // }
     return 0;
 }

@@ -12,6 +12,7 @@ static int childProcess(void *arg) {
     execve("./exec", argVec,envVec);
 }
 
+
 static int childProcess1(void *arg) {
     char* env = getenv("MY_ENV");
     printf("childProcess %d env:%s\n", getpid(), env);

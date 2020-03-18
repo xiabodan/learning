@@ -1,0 +1,4 @@
+1.将压缩包解压，进入 pull-system-framework 目录
+2.手机到连接adb
+3.双击执行pull-system-framework-app.bat
+4.执行成功后，会在当前目录下生成"framework.tar.gz"，将该文件发给技术支持。
